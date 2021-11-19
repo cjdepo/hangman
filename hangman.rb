@@ -5,7 +5,7 @@ require 'json'
 class Game
     attr_accessor :word, :guesses, :display, :active_game, :id, :remaining_misses
 
-    @@gamecount = 0
+    @@gamecount = Dir.glob("saved_games/*").length
 
     def load_saved_game
         Dir.glob('saved_games/*').each{ |game| puts game }
@@ -38,6 +38,7 @@ class Game
             letter = gets.chomp.downcase
             if letter == 'save'
                 self.save_game
+                puts "\n\nGame saved. Play on..."
             elsif letter == 'load'
 
             elsif letter == 'quit'
