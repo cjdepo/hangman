@@ -50,6 +50,7 @@ class Game
         self.start_menu
     end
 
+    private
     def generate_word
         wordlist = File.open("5desk.txt", "r")
         words = wordlist.read
